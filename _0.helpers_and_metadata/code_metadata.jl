@@ -61,43 +61,43 @@ B6 = 1 + x^7 + s + x^8 + x^9 + s*x^4
 l=6; m=6
 GA = group_algebra(GF(2), abelian_group([l, m]))
 x, y = gens(GA)
-C1 = x^3 + y + y^2
-D1 = y^3 + x + x^2
+A₇₂ = x^3 + y + y^2
+B₇₂ = y^3 + x + x^2
 
 # [[196, 12, 8]]
 l=14; m=7
 GA = group_algebra(GF(2), abelian_group([l, m]))
 x, y = gens(GA)
-C2 = x^6 + y^5 + y^6
-D2 = 1   + x^4 + x^13
+A₁₉₆ = x^6 + y^5 + y^6
+B₁₉₆ = 1   + x^4 + x^13
 
 # [[108, 8, 10]]
 l=9; m=6
 GA = group_algebra(GF(2), abelian_group([l, m]))
 x, y = gens(GA)
-C3 = x^3 + y + y^2
-D3 = y^3 + x + x^2
+A₁₀₈ = x^3 + y + y^2
+B₁₀₈ = y^3 + x + x^2
 
 # [[288, 12, 12]]
 l=12; m=12
 GA = group_algebra(GF(2), abelian_group([l, m]))
 x, y = gens(GA)
-C4 = x^3 + y^2 + y^7
-D4 = y^3 + x   + x^2
+A₂₈₈ = x^3 + y^2 + y^7
+B₂₈₈ = y^3 + x   + x^2
 
 # [[360, 12, ≤ 24]]
 l=30; m=6
 GA = group_algebra(GF(2), abelian_group([l, m]))
 x, y = gens(GA)
-C5 = x^9 + y    + y^2
-D5 = y^3 + x^25 + x^26
+A₃₆₀ = x^9 + y    + y^2
+B₃₆₀ = y^3 + x^25 + x^26
 
 # [[756, 16, ≤ 34]]
 l=21; m=18
 GA = group_algebra(GF(2), abelian_group([l, m]))
 x, y = gens(GA)
-C6 = x^3 + y^10 + y^17
-D6 = y^5 + x^3  + x^19
+A₇₅₆ = x^3 + y^10 + y^17
+B₇₅₆ = y^5 + x^3  + x^19
 
 
 
@@ -171,7 +171,7 @@ const code_metadata = Dict(
                       Helpers.KWFun(PyBeliefPropOSDecoder, (;bpmethod=:productsum, osdmethod=:zeroorder)),
                       Helpers.KWFun(PyBeliefPropOSDecoder, (;bpmethod=:productsum, osdmethod=:exhaustive, osdorder=5)),
                       Helpers.KWFun(PyBeliefPropOSDecoder, (;bpmethod=:productsum, osdmethod=:combinationsweep, osdorder=10)),
-                    ],
+        ],
         :setups => [CommutationCheckECCSetup],
         :ecczoo => "",
         :errrange => (eᵐⁱⁿ, eᵐᵃˣ, steps),
@@ -190,8 +190,8 @@ const code_metadata = Dict(
     ),
 
     two_block_group_algebra_codes => Dict(
-        :family => [(A1, B1), (A2, B2), (A3, B3), (A4, B4), (A5, B5), (A6, B6),  #TODO weed out the poorer 2BGA codes from Table 2 (seeming like the higher order ones fail more often) #
-                    (C1, D1), (C2, D2), (C3, D3), (C4, D4), (C5, D5), (C6, D6)], #TODO the (A,B) cluster goes to the 2BGA group and the (C,D) cluster goes to the bivariate group need some way to distinguish those two
+        :family => [(A1, B1), (A2, B2), (A3, B3), (A4, B4), (A5, B5), (A6, B6),  #TODO add some sort of naming convention to this family other than the same thing that the bivariate group has #
+                    (A₇₂, B₇₂), (A₁₉₆, B₁₉₆), (A₂₈₈, B₂₈₈), (A₁₀₈, B₁₀₈), (A₃₆₀, B₃₆₀), (A₇₅₆, B₇₅₆)], #TODO the (A,B) cluster goes to the 2BGA group and the other cluster goes to the bivariate group need some way to distinguish those two
         :decoders => [BitFlipDecoder, PyBeliefPropDecoder, PyBeliefPropOSDecoder],
         :setups => [CommutationCheckECCSetup],
         :ecczoo => "https://errorcorrectionzoo.org/c/2bga",
